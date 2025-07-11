@@ -21,9 +21,9 @@ RUN set -eux; adduser -h /opt/cantaloupe -D cantaloupe; \
         fontconfig font-dejavu \
         perl-image-exiftool; \
     wget https://github.com/cantaloupe-project/cantaloupe/releases/download/v$CANTALOUPE_VERSION/cantaloupe-$CANTALOUPE_VERSION.zip \
-        -O /tmp/cantaloupe.zip; \
+        -qO /tmp/cantaloupe.zip; \
     mkdir -p /etc/cantaloupe /opt/cantaloupe /tmp/extract; \
-    unzip /tmp/cantaloupe.zip -d /opt/extract; \
+    unzip -q /tmp/cantaloupe.zip -d /opt/extract; \
     mv /opt/extract/cantaloupe-$CANTALOUPE_VERSION/* /opt/cantaloupe/; \
     mv /opt/cantaloupe/cantaloupe-$CANTALOUPE_VERSION.jar \
         /opt/cantaloupe/cantaloupe.jar; \
