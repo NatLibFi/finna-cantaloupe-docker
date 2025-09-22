@@ -28,9 +28,10 @@ RUN set -eux; useradd -m -d /opt/cantaloupe cantaloupe; \
         libimage-exiftool-perl; \
     wget https://github.com/cantaloupe-project/cantaloupe/releases/download/v$CANTALOUPE_VERSION/cantaloupe-$CANTALOUPE_VERSION.zip \
         -qO /tmp/cantaloupe.zip; \
-    mkdir -p /etc/cantaloupe /opt/cantaloupe /tmp/extract \
+    mkdir -p /etc/cantaloupe /opt/cantaloupe /tmp/extract /var/cache/cantaloupe \
         /var/iiif /opt/libjpeg-turbo/lib; \
     chmod 0755 /var/iiif; \
+    chown cantaloupe /var/cache/cantaloupe; \
     unzip -q /tmp/cantaloupe.zip -d /opt/extract; \
     mv /opt/extract/cantaloupe-$CANTALOUPE_VERSION/* /opt/cantaloupe/; \
     mv /opt/cantaloupe/cantaloupe-$CANTALOUPE_VERSION.jar \
